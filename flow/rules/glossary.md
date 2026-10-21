@@ -1,0 +1,22 @@
+# Глоссарий Trash
+
+- Найди слово (термин, синоним, имя типа) поиском по файлу — строка ведёт в нужные документы.
+- В строке: первый путь — основной документ (**обязателен к прочтению**; большой файл не читай целиком: `grep -n '^## ' <файл>` покажет его оглавление — читай нужные разделы точечным Read). Дальше через `;` — смежные, открывай их только при необходимости (пометка — когда).
+- **Кодовых имён второстепенного уровня здесь нет** (методы, свойства, вспомогательные типы) — они меняются при рефакторинге, и глоссарий начал бы врать молча. Встретил такое имя — грепай код **и `flow/knowledge/`**: имя найдётся в разделе «Кодовые якоря (индекс)» дока модуля. Здесь остаются имена сущностей и главные типы.
+- **Вся документация — в `flow/knowledge/`**; пути в таблице указаны от неё, а путь **без каталога — это `modules/`** (`cleanup.md` = `flow/knowledge/modules/cleanup.md`; остальные каталоги пишутся явно: `engineering/…`). Пути с другим корнем (`flow/…`, `.claude/…`, `Trash/…`) даны полностью.
+- Если термина нет или после первого документа всё ещё непонятно — `flow/project-map.md` как fallback.
+
+| Слова-триггеры | Куда идти |
+|---|---|
+| Сканирование, скан, поиск мусора, категория, CleanupCategory, CategoryGroup, ScanMethod, CleanupScanner, ScanItem, CategoryScanResult, размер на диске, корневая папка, двойной счёт, кэши, Caches, журналы, Logs, Корзина, .Trash, Full Disk Access, полный доступ к диску, нет доступа, замок, остальные данные, кэши в данных программ, установщики, OtherDataScanner | `scanning.md`; `cleanup.md` — что из найденного разрешено удалять |
+| Xcode, раздел Xcode, рантайм симулятора, симулятор, simctl, SimulatorCatalog, XcodeScanner, CommandRunner, DerivedData, проекта больше нет, Device Support, архивы, xcarchive, превью SwiftUI, Previews, кэш документации, SwiftPM, CocoaPods, Carthage, XCTestDevices, логи устройств, Products, старые версии Xcode, xcode-select, папка без симулятора | `xcode.md`; `scanning.md` — общий поиск и категории |
+| Очистка, удаление, удалить навсегда, переместить в Корзину, Cleaner, SafetyGuard, защищённые пути, разрешённые корни, отчёт об очистке, CleanupReport, не удалось удалить, удалил не то, пароль администратора, FinderTrash, Автоматизация, удаление через менеджер, ManagerRemoval, ManagerRemover, brew uninstall, brew cleanup, simctl delete, активная версия, AdministratorScript, root | `cleanup.md`; `scanning.md` — откуда берутся корни |
+| Главное окно, боковая панель, Обзор, OverviewView, ход сканирования, окно Xcode, SidebarItem, GroupOverviewView, чекбокс, Выбрать всё, кнопка Очистить, окно очистки, подтверждение, ConfirmCleanupSheet, CleanupReportSheet, автоскан, CleanupViewModel, ContentView, SidebarView, CategoryDetailView, CleanupBar, дизайн, тема, Theme, иконка приложения, AppIcon, место на диске, DiskSpace | `main-window.md` |
+| Терминал, Homebrew, brew, cask, старая версия, Android SDK, эмулятор, AVD, build-tools, Gradle, npm, pip, Yarn, pnpm, Cargo, Maven, pub-cache, битая ссылка, LaunchAgents, LaunchDaemons, фоновая служба, nvm, pyenv, rustup, SDKMAN, TerminalScanner, HomebrewCatalog, VersionPolicy, SystemLocations, ToolCatalog, Bun, asdf, mise, Docker, conda, MacPorts, Ollama, AndroidEmulators | `terminal.md`; `scanning.md` — общий поиск и категории |
+| Программы, установленные программы, удалить программу, остатки удалённых программ, Containers, Group Containers, Application Support, Saved Application State, HTTPStorages, Team ID, Launch Services, ApplicationCatalog, LeftoverPolicy, ApplicationsScanner, Recycler | `applications.md`; `cleanup.md` — контракт удаления |
+| Код-стайл, стиль кода, Swift 6, concurrency, @concurrent, MainActor, Sendable, force unwrap, Swift Testing | `engineering/code-style.md` |
+| Сборка, тесты, make, xcodebuild, DerivedData проекта, схема, тест-хост, синхронизируемые папки, project.pbxproj, подпись, App Sandbox, Hardened Runtime, deployment target | `engineering/build-and-test.md` |
+| Swift Testing gotchas, call can throw в expect, макрос expect, падение тестов, Early unexpected exit, 0.000 seconds | `engineering/swift-testing-gotchas.md` |
+| Компилятор Swift gotchas, failed to produce diagnostic, падение компилятора, bug report | `engineering/swift-compiler-gotchas.md` |
+| Проверка фактов, не выдумывать, доказательство, пруф | `engineering/never-fabricate-verify-first.md` |
+| Хуки, guard-bash, check-doc-sync, check-links, check-glossary, check-sizes, карта модулей, code-to-module-map, команды dev, архивация истории, планы flow | `flow/meta/README.md` |

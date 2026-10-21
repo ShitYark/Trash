@@ -1,0 +1,19 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Временные файлы агента и debug-артефакты (flow/meta/conventions.md)
+tmp/*
+!tmp/.gitkeep
+Debug/

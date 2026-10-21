@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"${CLAUDE_PROJECT_DIR}/flow/scripts/check-doc-sync.py\"; [ ! -f \"$f\" ] || python3 \"$f\""
+          },
+          {
+            "type": "command",
+            "command": "f=\"${CLAUDE_PROJECT_DIR}/flow/scripts/check-links.py\"; [ ! -f \"$f\" ] || python3 \"$f\" --changed"
+          },
+          {
+            "type": "command",
+            "command": "f=\"${CLAUDE_PROJECT_DIR}/flow/scripts/check-glossary.py\"; [ ! -f \"$f\" ] || python3 \"$f\" --changed"
+          },
+          {
+            "type": "command",
+            "command": "f=\"${CLAUDE_PROJECT_DIR}/flow/scripts/check-sizes.py\"; [ ! -f \"$f\" ] || python3 \"$f\" --changed"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"${CLAUDE_PROJECT_DIR}/flow/scripts/guard-bash.py\"; [ ! -f \"$f\" ] || python3 \"$f\""
+          }
+        ]
+      }
+    ]
+  },
+  "includeCoAuthoredBy": false
+}
